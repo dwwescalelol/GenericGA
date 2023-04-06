@@ -4,6 +4,6 @@ namespace GenericGA.Selection
 {
     internal interface ISelection
     {
-        List<EvaluatedChromosome> Select(List<EvaluatedChromosome> population, int numSelected);
+        List<EvaluatedChromosome> Select(List<EvaluatedChromosome> population, int numSelected, OptimizationType optimizationType);
     }
 }

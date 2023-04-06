@@ -16,18 +16,20 @@ namespace GenericGA.Mutation
             rng = new Random();
         }
 
+        // assumes all genes have same constraints and types.
         public T Mutate(T chrom)
         {
             int i = rng.Next(chrom.Chromosome.Count);
             int j = rng.Next(chrom.Chromosome.Count);
 
-            List<object> mutatedChrom = chrom.Clone();
+            T? mutatedChrom = chrom.Clone() as T;
+
+            if (mutatedChrom is null) 
+                throw new Exception("cannot convert mutated chrom to type T");
 
             (mutatedChrom[j], mutatedChrom[i]) = (mutatedChrom[i], mutatedChrom[j]);
 
-            T c = new(mutatedChrom);
-
-            return c;
+            return mutatedChrom;
         }
     }
 }

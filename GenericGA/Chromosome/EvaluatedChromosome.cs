@@ -2,10 +2,10 @@
 {
     internal class EvaluatedChromosome
     {
-        public IChromosome Chromosome { get; set; }
+        public BaseChromosome Chromosome { get; set; }
         public double Fitness { get; private set; }
 
-        public EvaluatedChromosome(IChromosome chromosome)
+        public EvaluatedChromosome(BaseChromosome chromosome)
         {
             Chromosome = chromosome;
             Fitness = chromosome.Fitness();
